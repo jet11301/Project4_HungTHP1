@@ -68,7 +68,7 @@ jobs:
       working-directory: starter/frontend
       env:
         IMAGE_TAG: "lastest"
-        REPO_NAME: movie
+        REPO_NAME: "frontend-movie"
         AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID}}
         REACT_APP_MOVIE_API_URL: ${{ vars.REACT_APP_MOVIE_API_URL}}
       run: |
@@ -81,7 +81,7 @@ jobs:
       working-directory: starter/frontend/k8s
       env:
         IMAGE_TAG: lastest
-        REPO_NAME: frontend-movie
+        REPO_NAME: "frontend-movie"
         AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID}}
       run: |
         kustomize edit set image frontend=$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
