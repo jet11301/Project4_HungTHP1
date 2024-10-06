@@ -7,7 +7,7 @@ on:
     - main
 jobs:
   lint:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
     - name: Check the Repository
       uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
     - name: Checkout Run Lint
       run: cd starter/backend && pipenv run lint
   test:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     needs: lint
     steps:
     - name: Check the Repository
@@ -43,7 +43,7 @@ jobs:
       run: cd starter/backend && pipenv install pytest && pipenv run test
 
   build:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     needs: test
     steps:
     - name: Check the Repository

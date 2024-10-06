@@ -9,7 +9,7 @@ on:
 
 jobs:
   lint-job:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
         cd starter/backend  # Change to the specific directory
         pipenv run lint  # LINT JOB
   test-job:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
   build-job:
     name: build
     needs: [lint-job, test-job]
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
