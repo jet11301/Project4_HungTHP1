@@ -61,8 +61,8 @@ jobs:
     - name: Build and Push Docker Image
       working-directory: starter/backend
       env:
-        IMAGE_TAG: latest
-        REPO_NAME: backend-movie
+        IMAGE_TAG: lastest
+        REPO_NAME: "backend-movie"
         AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID}}
       run: |
         docker build --tag $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG .
@@ -72,8 +72,8 @@ jobs:
     - name: Deploy Docker Image to Amazon EKS
       working-directory: starter/backend/k8s
       env:
-        IMAGE_TAG: latest
-        REPO_NAME: backend-movie
+        IMAGE_TAG: lastest
+        REPO_NAME: "backend-movie"
         AWS_ACCOUNT_ID: ${{secrets.AWS_ACCOUNT_ID}}
       run: |
         kustomize edit set image backend=$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
