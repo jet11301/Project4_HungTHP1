@@ -1,4 +1,4 @@
-name: ci-backend
+name: backend-ci
 
 on:
   workflow_dispatch:
@@ -95,6 +95,6 @@ jobs:
     - name: Build, tag, push image
       env:
         ECR_REGISTRY: ${{ steps.login-amz-ecr.outputs.registry }}
-        ECR_REPOSITORY: "frontend-movie"
+        ECR_REPOSITORY: "backend-movie"
         IMAGE_TAG: latest
       run: "cd starter/backend  # Change to the specific directory\ndocker build -t backend:latest .  # image name\ndocker tag backend:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest\ndocker push $ECR_REGISTRY/$ECR_REPOSITORY:latest \necho \"image=$ECR_REGISTRY/$ECR_REPOSITORY:latest\" >> $GITHUB_OUTPUT\n"
